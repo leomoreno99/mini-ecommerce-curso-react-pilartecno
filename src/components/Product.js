@@ -1,31 +1,63 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material"
+import * as React from "react";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
-export const Product = ({product}) => {
+const useStyle = makeStyles({
+    cardHover: {
+    "&:hover": {
+      boxShadow: "0px 10px 10px rgb(0 0 0 / 20%);",
+      cursor: "pointer",
+    }
+  },
+});
 
-    const { title, image, price, description } = product;
+export const Product = ({ product }) => {
+  const { title, image, price, description } = product;
+  const classes = useStyle();
 
-    return (
-        <Grid item xs={4}>
-        <Card sx={{ maxWidth: "100$" }}>
-            <CardMedia
-                component="img"
-                height="140"
-                image= {image}
-                alt="green iguana"
-            />
+
+  return (
+    <Grid item xs={6}>
+      <Card className={classes.cardHover} sx={{ maxWidth: "100%" }}>
+        <Grid container>
+          <Grid height={"15rem"} item xs={6}>
+            <CardMedia component="img" image={image} alt="green iguana" />
+          </Grid>
+          <Grid item xs={6}>
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                fontWeight="900"
+                gutterBottom
+                variant="h5"
+                component="div"
+              >
                 {title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
+              </Typography>
+              <Typography noWrap variant="body2" color="text.secondary">
                 {description}
-                </Typography>
+              </Typography>
+              <Typography
+                fontWeight="500"
+                marginTop="2rem"
+                color="#13C296"
+                gutterBottom
+                variant="h5"
+                component="div"
+              >
+                ${price}
+              </Typography>
             </CardContent>
-            <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-            </CardActions>
-        </Card>
+            <CardActions></CardActions>
+          </Grid>
         </Grid>
-    )
-}
+      </Card>
+    </Grid>
+  );
+};
