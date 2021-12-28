@@ -7,8 +7,8 @@ export const ListProduct = () => {
     const products = json.products;
 
     return(
-        <Box sx={{ m: "7%", mt:0, flexGrow: 1 }}>
-            <Grid container spacing={2}>
+        <Box sx={{ m: "7%", mt:"50px", flexGrow: 1 }}>
+            <Grid container spacing={2} >
                 {products.map((product, index) => (
                     <Product key={index} product={product}/>
                 ))}

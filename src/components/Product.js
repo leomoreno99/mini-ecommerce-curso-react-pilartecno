@@ -69,7 +69,7 @@ export const Product = ({ product }) => {
             </CardContent>
             <CardActions className={classes.cardActions} >
               <IconButton color="primary" aria-label="add to shopping cart">
-                <AddShoppingCartIcon />
+                <AddShoppingCartIcon sx={{ color: "#C21D3A" }} />
               </IconButton>
             </CardActions>
           </Grid>
