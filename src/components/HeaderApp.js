@@ -9,9 +9,8 @@ import { createTheme } from "@mui/material/styles";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import { Box, IconButton, Menu, MenuItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { CartMenu } from "./CartMenu";
-
+import { ShoppingCart } from "./ShoppingCart/ShoppingCart";
+import { RenderMenu } from "./ShoppingCart/RenderMenu";
 
 // Styles
 const theme = createTheme({
@@ -28,11 +27,9 @@ const useStyle = makeStyles({
     height: "100px",
     margin: "6%",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
   },
 });
-
-
 
 // Navbar scroll
 function ElevationScroll(props) {
@@ -53,9 +50,6 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-
-
-
 export const HeaderApp = (props) => {
   const classes = useStyle();
 
@@ -74,28 +68,6 @@ export const HeaderApp = (props) => {
     setAnchorEl(null);
   };
 
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <CartMenu item={"Perfil"}/>
-      <CartMenu item={"Que se yo"}/>
-      <CartMenu item={"Otra cosa"}/>
-    </Menu>
-  );
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -107,7 +79,7 @@ export const HeaderApp = (props) => {
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                sx={{mr: 2 }}
+                sx={{ mr: 2 }}
               >
                 <StorefrontIcon />
               </IconButton>
@@ -119,23 +91,21 @@ export const HeaderApp = (props) => {
                 Mini E-Commerce
               </Typography>
 
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <ShoppingCartIcon />
-              </IconButton>
+              <ShoppingCart
+                menuId={menuId}
+                handleProfileMenuOpen={handleProfileMenuOpen}
+              />
             </Toolbar>
           </AppBar>
         </ElevationScroll>
       </Box>
       <Toolbar />
-      {renderMenu}
+      <RenderMenu
+        anchorEl={anchorEl}
+        menuId={menuId}
+        isMenuOpen={isMenuOpen}
+        handleMenuClose={handleMenuClose}
+      />
     </React.Fragment>
   );
-}
+};

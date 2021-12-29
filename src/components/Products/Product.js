@@ -1,4 +1,5 @@
 import * as React from "react";
+import db from "../../app/db/db"
 import {
   Card,
   CardActions,
@@ -32,9 +33,19 @@ const useStyle = makeStyles({
   },
 });
 
+
+
 export const Product = ({ product }) => {
   const { title, image, price, description } = product;
   const classes = useStyle();
+
+  const addProductToCart = ({title, price, category}) => {
+    db.cart.add({
+      title: title,
+      price: price,
+      category: category
+    })
+  }
 
   return (
     <Grid item xs={12} md={6}>
@@ -68,7 +79,7 @@ export const Product = ({ product }) => {
               </Typography>
             </CardContent>
             <CardActions className={classes.cardActions} >
-              <IconButton color="primary" aria-label="add to shopping cart">
+              <IconButton onClick={()=>addProductToCart(product)} color="primary" aria-label="add to shopping cart">
                 <AddShoppingCartIcon sx={{ color: "#C21D3A" }} />
               </IconButton>
             </CardActions>
