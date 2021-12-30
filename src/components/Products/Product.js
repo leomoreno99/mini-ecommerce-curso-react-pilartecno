@@ -49,7 +49,7 @@ export const Product = ({ product }) => {
 
   return (
     <Grid item xs={12} md={6}>
-      <Card className={classes.card} sx={{ maxWidth: "100%" }}>
+      <Card variant="outlined" className={classes.card} sx={{ maxWidth: "100%" }}>
         <Grid container>
           <Grid height={"15rem"} item xs={12} sm={6}>
             <CardMedia component="img" image={image} alt="green iguana" />

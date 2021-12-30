@@ -26,7 +26,7 @@ export const ShoppingCart = (props) => {
       onClick={props.handleProfileMenuOpen}
       color="inherit"
     >
-       <Badge badgeContent={productsCart.length} color="error">
+       <Badge badgeContent={productsCart.length} color="error" >
       <ShoppingCartIcon />
       </Badge>
     </IconButton>
