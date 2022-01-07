@@ -1,7 +1,12 @@
 import { MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 export const ShoppingCartItem = (prop) => {
-  const {price, title, category} = prop.item
-  return <MenuItem onClick={prop.handleMenuClose}>{`${title} - ${category} - $${price}`}</MenuItem>;
+  const {price, title, category, id} = prop.item
+  return (
+    <Link to={`/cartproduct/${id}`} >
+      <MenuItem onClick={prop.handleMenuClose}>{`${title} - ${category} - $${price}`}</MenuItem>
+    </Link>
+  )
 };

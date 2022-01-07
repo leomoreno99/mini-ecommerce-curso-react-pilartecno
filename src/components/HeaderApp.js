@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { createTheme } from "@mui/material/styles";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import { Box, IconButton, Menu, MenuItem } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { ShoppingCart } from "./ShoppingCart/ShoppingCart";
 import { RenderMenu } from "./ShoppingCart/RenderMenu";
@@ -76,6 +76,7 @@ export const HeaderApp = (props) => {
           <AppBar theme={theme}>
             <Toolbar className={classes.appBar}>
               <IconButton
+                href="/"
                 edge="start"
                 color="inherit"
                 aria-label="menu"

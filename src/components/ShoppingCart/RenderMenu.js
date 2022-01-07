@@ -3,6 +3,7 @@ import { ShoppingCartItem } from "./ShoppingCartItem"
 import db from '../../app/db/db'
 import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export const RenderMenu = (props) => {
@@ -46,9 +47,11 @@ export const RenderMenu = (props) => {
         >
          {productsCart.map((product)=>  <ShoppingCartItem key={product.id} item={product}/>)}
          <Divider />
+        <Link to="/purchase" >
         <Typography variant="h6" pl="16px" >
           Total: ${totalPrice}
         </Typography>
+        </Link>
         </Menu>
     )
 }
