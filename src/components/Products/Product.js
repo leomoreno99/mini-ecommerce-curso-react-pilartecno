@@ -39,11 +39,13 @@ export const Product = ({ product }) => {
   const { title, image, price, description } = product;
   const classes = useStyle();
 
-  const addProductToCart = ({title, price, category}) => {
+  const addProductToCart = ({title, price, category, description, image}) => {
     db.cart.add({
       title: title,
       price: price,
-      category: category
+      category: category,
+      description: description,
+      image: image
     })
   }
 
@@ -74,6 +76,7 @@ export const Product = ({ product }) => {
                 gutterBottom
                 variant="h5"
                 component="div"
+                fontWeight='900'
               >
                 ${price}
               </Typography>

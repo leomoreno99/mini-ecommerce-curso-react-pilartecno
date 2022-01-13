@@ -10,3 +10,10 @@ export const getAllProducts = async () => {
     const allProductsFromDB = await db.cart.toArray();
     return allProductsFromDB;
 }
+
+export const getTotalPrice = (productsCart) => {
+    const total = productsCart?.reduce((totalPrice, currentProduct) => {
+      return totalPrice + currentProduct.price
+    },0)
+    return total
+  }
