@@ -4,7 +4,7 @@ import db from "../../app/db/db";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getTotalPrice } from "../../app/services/productServices";
+import { getTotalPrice } from "../../app/services/productCartServices";
 
 export const RenderMenu = (props) => {
   const [productsCart, setProductsCart] = useState([]);

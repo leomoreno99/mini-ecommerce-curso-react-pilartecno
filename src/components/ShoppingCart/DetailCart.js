@@ -5,7 +5,7 @@ import { useState } from "react";
 import {
   getAllProducts,
   getTotalPrice,
-} from "../../app/services/productServices";
+} from "../../app/services/productCartServices";
 import { Typography } from "@mui/material";
 
 const columns = [
