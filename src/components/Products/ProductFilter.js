@@ -51,6 +51,7 @@ const StyledMenu = styled((props) => (
 
 export default function ProductFilter({ history }) {
   const [filters, setFilters] = React.useState([]);
+  const [nameFilter, setNameFilter] = React.useState("Filtrar")
 
   React.useEffect(() => {
     getAllCategories().then((data) => setFilters(data));
@@ -64,24 +65,25 @@ export default function ProductFilter({ history }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClickFilter = (filter) => {
+  const handleClickFilter = async (filter) => {
+    await setNameFilter(filter)
     history.push(`/products/${filter}`);
   }
 
   return (
-    <div style={{ marginTop: "50px" }}>
+    <div style={{ margin: "50px 7% 0px 7%", textAlign:"right", }}>
       <Button
         id="demo-customized-button"
         aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        variant="contained"
+        variant="outlined"
         disableElevation
-        color="warning"
+        color="inherit"
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Filtrar
+        {nameFilter}
       </Button>
       <StyledMenu
         id="demo-customized-menu"

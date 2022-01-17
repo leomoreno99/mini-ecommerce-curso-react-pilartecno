@@ -1,6 +1,7 @@
 
 import { Route, Switch } from 'react-router-dom';
 import { HeaderApp } from './components/HeaderApp';
+import { FilterListProducts } from './components/Products/FilterListProducts';
 import { CartProductView } from './views/CartProductView';
 import { FilterProductsView } from './views/FilterProductsView';
 import {Home} from './views/Home';

@@ -4,7 +4,7 @@ import { getProductBycategory } from "../../app/services/productService";
 import { Product } from "./Product";
 
 
-export const FilterListProduct = ({match}) => {
+export const FilterListProducts = ({match}) => {
     const [products, setProducts] = useState([])
 
     const {filter} = match.params
