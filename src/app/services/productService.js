@@ -12,3 +12,11 @@ export const getProductsById = async (idProduct) => {
 export const addNewProduct = async (product) => {
     return api.post(routes.addProduct(), product)
 }
+
+export const getAllCategories = async () => {
+    return api.get(routes.getAllCategories())
+}
+
+export const getProductBycategory = async (category) => {
+    return api.get(routes.getProductsByCategory(category))
+}
