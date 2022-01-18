@@ -7,6 +7,7 @@ import {
   getTotalPrice,
 } from "../../app/services/productCartServices";
 import { Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const columns = [
   { field: "col1", headerName: "#", width: 100 },
@@ -16,8 +17,11 @@ const columns = [
 ];
 
 export default function DetailCart() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const products = useSelector((state) => state.cartReducer.list)
+
 
   useEffect(() => {
     if (products.length > 0) {
@@ -25,9 +29,9 @@ export default function DetailCart() {
     }
   }, [products]);
 
-  useEffect(() => {
-    getAllProducts().then((AllProductFromDB) => setProducts(AllProductFromDB));
-  }, []);
+  // useEffect(() => {
+  //   getAllProducts().then((AllProductFromDB) => setProducts(AllProductFromDB));
+  // }, []);
 
   const rows1 = products.map((product) => {
     return {

@@ -5,8 +5,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { getAllCategories } from "../../app/services/productService";
-import { useDispatch } from "react-redux";
-import { filterByCategory } from "../../redux/actions/products/productsActions";
+import { useDispatch, useSelector } from "react-redux";
+import { changeNameFilter, filterByCategory } from "../../redux/actions/products/productsActions";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,8 +53,9 @@ const StyledMenu = styled((props) => (
 
 export default function ProductFilter({ history }) {
   const [filters, setFilters] = React.useState([]);
-  const [nameFilter, setNameFilter] = React.useState("Filtrar")
+  // const [nameFilter, setNameFilter] = React.useState("Filtrar")
 
+  const nameFilter = useSelector((state) => state.productsReducer.nameFilter)
   const dispatcher = useDispatch()
 
   React.useEffect(() => {
@@ -69,9 +70,10 @@ export default function ProductFilter({ history }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClickFilter = async (filter) => {
-    await setNameFilter(filter)
-    // history.push(`/products/${filter}`);
+  const handleClickFilter = (filter) => {
+    // await setNameFilter(filter)
+    dispatcher(changeNameFilter(filter))
+    history.push(`/products/${filter}`);
     dispatcher(filterByCategory(filter))
   }
 

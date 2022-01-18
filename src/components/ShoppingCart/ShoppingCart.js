@@ -3,14 +3,17 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import db from "../../app/db/db";
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
+import { useSelector } from "react-redux";
 
 export const ShoppingCart = (props) => {
-  const [productsCart, setProductsCart] = useState([]);
+  // const [productsCart, setProductsCart] = useState([]);
 
-  useLiveQuery(async () => {
-    const productsDB = await db.cart.toArray();
-    setProductsCart(productsDB);
-  });
+  const productsCart = useSelector((state) => state.cartReducer.list)
+
+  // useLiveQuery(async () => {
+  //   const productsDB = await db.cart.toArray();
+  //   setProductsCart(productsDB);
+  // });
 
   return (
     <IconButton

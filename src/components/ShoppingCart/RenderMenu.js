@@ -5,15 +5,18 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTotalPrice } from "../../app/services/productCartServices";
+import { useSelector } from "react-redux";
 
 export const RenderMenu = (props) => {
-  const [productsCart, setProductsCart] = useState([]);
+  // const [productsCart, setProductsCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useLiveQuery(async () => {
-    const productsDB = await db.cart.toArray();
-    setProductsCart(productsDB);
-  });
+  const productsCart = useSelector((state) => state.cartReducer.list)
+
+  // useLiveQuery(async () => {
+  //   const productsDB = await db.cart.toArray();
+  //   setProductsCart(productsDB);
+  // });
 
   useEffect(() => {
     if (productsCart.length > 0) {

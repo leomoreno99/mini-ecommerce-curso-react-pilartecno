@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../redux/actions/cart/cartActions";
 
 const useStyle = makeStyles({
   card: {
@@ -39,14 +41,18 @@ export const Product = ({ product }) => {
   const { title, image, price, description } = product;
   const classes = useStyle();
 
-  const addProductToCart = ({title, price, category, description, image}) => {
-    db.cart.add({
-      title: title,
-      price: price,
-      category: category,
-      description: description,
-      image: image
-    })
+  const dispatcher = useDispatch()
+
+  const addProductToCart = (item) => {
+    // db.cart.add({
+    //   title: title,
+    //   price: price,
+    //   category: category,
+    //   description: description,
+    //   image: image
+    // })
+
+    dispatcher(addItemToCart(item))
   }
 
   return (

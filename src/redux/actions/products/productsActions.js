@@ -2,6 +2,7 @@ import { getAllProducts } from "../../../app/services/productService";
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
+export const CHANGE_NAME_FILTER = "CHANGE_NAME_FILTER"
 
 // Actions creator
 const getAllProductsAction = (products) => ({
@@ -13,6 +14,11 @@ const filterProducts = (products) => ({
   type: FILTER_PRODUCTS,
   payload: products,
 });
+
+export const changeNameFilter = (nameFilter) =>({
+    type: CHANGE_NAME_FILTER,
+    payload: nameFilter
+})
 
 // Async actions
 export const allProducts = () => {

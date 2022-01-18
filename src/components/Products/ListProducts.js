@@ -1,3 +1,4 @@
+import { ProductionQuantityLimitsRounded } from "@mui/icons-material";
 import { Box, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,9 +18,11 @@ export const ListProduct = () => {
     const products = useSelector((state) => state.productsReducer.products)
     const dispatcher = useDispatch()
 
-   useEffect(()=>{
-       dispatcher(allProducts())
-   },[]) 
+
+    useEffect(()=>{
+        dispatcher(allProducts())
+    },[]) 
+   
 
     return(
         <Box sx={{ m: "7%", mt:"50px", flexGrow: 1 }}>
