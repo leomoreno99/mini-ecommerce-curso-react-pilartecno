@@ -5,6 +5,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { getAllCategories } from "../../app/services/productService";
+import { useDispatch } from "react-redux";
+import { filterByCategory } from "../../redux/actions/products/productsActions";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,6 +55,8 @@ export default function ProductFilter({ history }) {
   const [filters, setFilters] = React.useState([]);
   const [nameFilter, setNameFilter] = React.useState("Filtrar")
 
+  const dispatcher = useDispatch()
+
   React.useEffect(() => {
     getAllCategories().then((data) => setFilters(data));
   }, []);
@@ -67,7 +71,8 @@ export default function ProductFilter({ history }) {
   };
   const handleClickFilter = async (filter) => {
     await setNameFilter(filter)
-    history.push(`/products/${filter}`);
+    // history.push(`/products/${filter}`);
+    dispatcher(filterByCategory(filter))
   }
 
   return (
