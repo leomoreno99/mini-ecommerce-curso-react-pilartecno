@@ -3,7 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useState } from "react";
 import {
-  getAllProducts,
   getTotalPrice,
 } from "../../app/services/productCartServices";
 import { Typography } from "@mui/material";
