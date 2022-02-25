@@ -43,7 +43,6 @@ export const CartProductView = ({ match }) => {
     getProductById(params.id)
       .then((productFromDB) => {
         setProductDetail(productFromDB);
-        console.log(productDetail.image);
       })
       .catch((e) => console.log(e));
   }, [match]);
@@ -95,7 +94,7 @@ export const CartProductView = ({ match }) => {
           </Grid>
           <Grid item xs={8}>
             <Item className={classes.item}>
-              <img className={classes.image} src={productDetail.image} />
+              <img className={classes.image} src={productDetail.image} alt='img'/>
             </Item>
           </Grid>
         </Grid>

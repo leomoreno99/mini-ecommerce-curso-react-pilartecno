@@ -1,8 +1,8 @@
 import { Badge, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import db from "../../app/db/db";
-import { useState } from "react";
-import { useLiveQuery } from "dexie-react-hooks";
+// import db from "../../app/db/db";
+// import { useState } from "react";
+// import { useLiveQuery } from "dexie-react-hooks";
 import { useSelector } from "react-redux";
 
 export const ShoppingCart = (props) => {

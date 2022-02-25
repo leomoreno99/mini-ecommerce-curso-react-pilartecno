@@ -1,5 +1,5 @@
 import * as React from "react";
-import db from "../../app/db/db"
+// import db from "../../app/db/db"
 import {
   Card,
   CardActions,
@@ -76,7 +76,6 @@ export const Product = ({ product }) => {
                 {description}
               </Typography>
               <Typography
-                fontWeight="500"
                 marginTop="2rem"
                 color="#13C296"
                 gutterBottom

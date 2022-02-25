@@ -1,8 +1,8 @@
-import { ProductionQuantityLimitsRounded } from "@mui/icons-material";
+// import { ProductionQuantityLimitsRounded } from "@mui/icons-material";
 import { Box, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../app/services/productService";
+// import { getAllProducts } from "../../app/services/productService";
 import { allProducts } from "../../redux/actions/products/productsActions";
 import { Product } from "./Product";
 
@@ -21,7 +21,7 @@ export const ListProduct = () => {
 
     useEffect(()=>{
         dispatcher(allProducts())
-    },[]) 
+    },[dispatcher]) 
    
 
     return(

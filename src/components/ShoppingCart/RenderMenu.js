@@ -1,7 +1,7 @@
-import { Divider, Menu, MenuItem, Typography } from "@mui/material";
+import { Divider, Menu, MenuItem } from "@mui/material";
 import { ShoppingCartItem } from "./ShoppingCartItem";
-import db from "../../app/db/db";
-import { useLiveQuery } from "dexie-react-hooks";
+// import db from "../../app/db/db";
+// import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTotalPrice } from "../../app/services/productCartServices";
