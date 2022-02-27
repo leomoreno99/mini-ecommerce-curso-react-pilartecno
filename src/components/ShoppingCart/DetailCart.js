@@ -42,8 +42,6 @@ export default function DetailCart() {
     };
   });
 
-  console.log(totalPrice);
-
   return (
     <div style={{ height: "630px" }}>
       <DataGrid

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { getProductById } from "../app/services/productCartServices";
+import React, { useEffect } from "react";
+// import { getProductById } from "../app/services/productCartServices";
+import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { makeStyles } from "@mui/styles";
 import { Button, Chip, Divider, Typography } from "@mui/material";
+import { byId } from "../redux/actions/products/productsActions";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -36,16 +38,24 @@ const useStyle = makeStyles({
 export const CartProductView = ({ match }) => {
   const classes = useStyle();
 
-  const [productDetail, setProductDetail] = useState(null);
+  // const [productDetail, setProductDetail] = useState(null);
 
-  useEffect(() => {
-    const { params } = match;
-    getProductById(params.id)
-      .then((productFromDB) => {
-        setProductDetail(productFromDB);
-      })
-      .catch((e) => console.log(e));
-  }, [match]);
+  // useEffect(() => {
+  //   const { params } = match;
+  //   getProductById(params.id)
+  //     .then((productFromDB) => {
+  //       setProductDetail(productFromDB);
+  //     })
+  //     .catch((e) => console.log(e));
+  // }, [match]);
+
+    const productDetail = useSelector((state) => state.productsReducer.productById)
+    const dispatcher = useDispatch()
+
+    useEffect(()=>{
+      const { params } = match;
+      dispatcher(byId(params.id))
+  },[dispatcher, match]) 
 
   return (
     productDetail && (
